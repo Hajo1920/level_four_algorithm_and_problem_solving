@@ -413,6 +413,11 @@ void DepositCredit(vector<sClientInfo>& allClientData, sClientInfo& ClientInfo){
 void Normalwithdraw(sClientInfo& ClientInfo, vector<sClientInfo>& allClientData){
     int amount = ReadWithdrawAmount();
 
+    if(amount < 20 && amount % 5 != 0){
+        cout << "\n Invalid amount\n";
+        amount = ReadDepositAmount();
+    }
+
     if(ClientInfo.clientBalance < amount){
         system("clear");
         cout << "\nYour current balance is not sufficent for amount of withdrawal you requested\n" << endl;
